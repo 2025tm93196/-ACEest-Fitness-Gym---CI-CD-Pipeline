@@ -52,7 +52,8 @@ pipeline {
             steps {
                 dir('aceest') {
                     sh '''
-                        docker run --rm aceest-fitness:latest pytest
+                        docker run --rm aceest-fitness:latest \
+                        sh -c "PYTHONPATH=/app pytest -p no:cacheprovider"
                     '''
                 }
             }
