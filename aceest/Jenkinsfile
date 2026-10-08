@@ -21,7 +21,7 @@ pipeline {
                 dir('aceest') {
                     sh '''
                         . venv/bin/activate
-                        python -m py_compile app.py
+                        flake8 app.py
                     '''
                 }
             }
@@ -32,7 +32,7 @@ pipeline {
                 dir('aceest') {
                     sh '''
                         . venv/bin/activate
-                        pytest
+                        PYTHONPATH=. python -m pytest
                     '''
                 }
             }
